@@ -1,11 +1,12 @@
 extends Camera
 
-var offset
-onready var Ship = get_parent().get_node("Ship")
+onready var Ship = get_parent_spatial()
 
 func _ready():
-	offset = translation - Ship.translation
-
+	
+	pass
+	
 func _physics_process(delta):
-	translation = Ship.translation + offset
-		
+	print(Ship.translation)
+	pass
+
