@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/wood.jpeg-cb78eb6e229c64af3f09a9743bd70dae.s3tc.stex"
-path.etc2="res://.import/wood.jpeg-cb78eb6e229c64af3f09a9743bd70dae.etc2.stex"
+path.s3tc="res://.import/water.png-25a75e914e0cd51cf077b48ffc139669.s3tc.stex"
+path.etc2="res://.import/water.png-25a75e914e0cd51cf077b48ffc139669.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://wood.jpeg"
-dest_files=[ "res://.import/wood.jpeg-cb78eb6e229c64af3f09a9743bd70dae.s3tc.stex", "res://.import/wood.jpeg-cb78eb6e229c64af3f09a9743bd70dae.etc2.stex" ]
+source_file="res://textures/water.png"
+dest_files=[ "res://.import/water.png-25a75e914e0cd51cf077b48ffc139669.s3tc.stex", "res://.import/water.png-25a75e914e0cd51cf077b48ffc139669.etc2.stex" ]
 
 [params]
 
