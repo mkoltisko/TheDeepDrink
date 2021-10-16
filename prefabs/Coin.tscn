@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://textures/png-transparent-round-gold-colored-lid-sticker-coin-computer-file-coins-cartoon-sticker-cartoon-character-gold-coin-label.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+
+[node name="Coin" type="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+use_collision = true
+height = 0.367
+material = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
