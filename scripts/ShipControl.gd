@@ -4,7 +4,7 @@ onready var Body = get_node("Body")
 var forward_speed = 0
 var speed_step = 0.1
 var angle = 0
-var motion = Vector3.ZERO;
+var motion = Vector3.ZERO
 
 func _ready():
 	pass
@@ -22,3 +22,5 @@ func _physics_process(delta):
 	angle = Body.rotation.y
 	motion = Vector3(sin(angle + PI/2), 0, cos(angle + PI/2))
 	move_and_slide(motion * forward_speed)
+
+

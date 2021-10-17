@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://textures/cloth.jpg" type="Texture" id=1]
+[ext_resource path="res://textures/wood.jpeg" type="Texture" id=2]
+[ext_resource path="res://scripts/ShipControl.gd" type="Script" id=3]
+[ext_resource path="res://scripts/CameraFollow.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ShipSway.gd" type="Script" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 1, 1, 0.364706 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="Curve3D" id=4]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388, 0, 0, 0, 0, 0, 0, 4.38231, 0, -2.36544, 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388, 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=5]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.70688, 0, 2.50121, 0, 0, 0, 0, 0, 0, 4.45387, 0, 2.42964 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=3]
+
+[node name="Ship" type="KinematicBody"]
+script = ExtResource( 3 )
+
+[node name="Body" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+use_collision = true
+width = 11.0
+height = 1.0
+depth = 5.0
+material = SubResource( 1 )
+script = ExtResource( 5 )
+
+[node name="Mast Column" type="CSGCylinder" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.93714, 0 )
+radius = 0.311216
+height = 10.0522
+material = SubResource( 1 )
+
+[node name="Sail" type="CSGPolygon" parent="Body/Mast Column"]
+transform = Transform( -4.37114e-08, 0, -0.1, 0, 1, 0, 1, 0, -4.37114e-09, 0, 1.5, -0.05 )
+polygon = PoolVector2Array( 0.257203, -3.17507, 0, 1, 0.143958, 3.91176, -4.09256, -0.393028 )
+material = SubResource( 2 )
+
+[node name="Starboard" type="Path" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+curve = SubResource( 4 )
+
+[node name="StarboardSpawn" type="PathFollow" parent="Body/Starboard"]
+transform = Transform( -1, 0, -0.000345354, 0, 1, 0, 0.000345354, 0, -1, 0.642411, 0, -2.33623 )
+offset = 12.5842
+
+[node name="Portside" type="Path" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+curve = SubResource( 5 )
+
+[node name="PortSpawn" type="PathFollow" parent="Body/Portside"]
+transform = Transform( 1, 0, 0.000345267, 0, 1, 0, -0.000345267, 0, 1, -4.70688, 0, 2.50121 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0 )
+shape = SubResource( 3 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, 0.34202, -0.939693, 0, 0.939693, 0.34202, 1, 1.49502e-08, -4.10753e-08, -13, 12, 0 )
+fov = 97.5
+far = 511.9
+script = ExtResource( 4 )
