@@ -13,16 +13,16 @@ albedo_texture = ExtResource( 2 )
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="Curve3D" id=4]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388, 0, 0, 0, 0, 0, 0, 4.38231, 0, -2.36544, 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388, 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388 ),
-"tilts": PoolRealArray( 0, 0, 0, 0 )
-}
-
 [sub_resource type="Curve3D" id=5]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.70688, 0, 2.50121, 0, 0, 0, 0, 0, 0, 4.45387, 0, 2.42964 ),
 "tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=4]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388, 0, 0, 0, 0, 0, 0, 4.38231, 0, -2.36544, 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388, 0, 0, 0, 0, 0, 0, -4.77845, 0, -2.29388 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
 }
 
 [sub_resource type="BoxShape" id=3]
@@ -50,6 +50,13 @@ transform = Transform( -4.37114e-08, 0, -0.1, 0, 1, 0, 1, 0, -4.37114e-09, 0, 1.
 polygon = PoolVector2Array( 0.257203, -3.17507, 0, 1, 0.143958, 3.91176, -4.09256, -0.393028 )
 material = SubResource( 2 )
 
+[node name="Portside" type="Path" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+curve = SubResource( 5 )
+
+[node name="PortSpawn" type="PathFollow" parent="Body/Portside"]
+transform = Transform( 1, 0, 0.000345267, 0, 1, 0, -0.000345267, 0, 1, -4.70688, 0, 2.50121 )
+
 [node name="Starboard" type="Path" parent="Body"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
 curve = SubResource( 4 )
@@ -57,13 +64,6 @@ curve = SubResource( 4 )
 [node name="StarboardSpawn" type="PathFollow" parent="Body/Starboard"]
 transform = Transform( -1, 0, -0.000345354, 0, 1, 0, 0.000345354, 0, -1, 0.642411, 0, -2.33623 )
 offset = 12.5842
-
-[node name="Portside" type="Path" parent="Body"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
-curve = SubResource( 5 )
-
-[node name="PortSpawn" type="PathFollow" parent="Body/Portside"]
-transform = Transform( 1, 0, 0.000345267, 0, 1, 0, -0.000345267, 0, 1, -4.70688, 0, 2.50121 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0 )
