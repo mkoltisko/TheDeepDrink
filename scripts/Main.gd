@@ -1,9 +1,9 @@
 extends Spatial
 
-export (PackedScene) var cannonBall_scene = preload("res://cannonBall.tscn")
+export (PackedScene) var cannonBall_scene = preload("res://prefabs/CannonBall.tscn")
 
 var cannonNo = 1
-
+var cannon_height = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,5 +18,6 @@ func _physics_process(delta):
 			var cannonBall_spawn_location = $Ship/Body/Portside/PortSpawn
 			cannonBall_spawn_location.unit_offset = .5
 			add_child(cannonBall)
-			cannonBall.translation = Vector3(cannonBall_spawn_location.translation.x + $Ship/Body.translation.x + $Ship.translation.x, 3, cannonBall_spawn_location.translation.z + $Ship/Body.translation.z + $Ship.translation.z)
-			print($Ship/Body/Portside/PortSpawn.translation)
+			cannonBall.translation = cannonBall_spawn_location.translation + $Ship/Body.translation + $Ship.translation 
+			cannonBall.translation.y = cannon_height
+#			print($Ship/Body/Portside/PortSpawn.translation)

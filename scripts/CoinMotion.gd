@@ -1,5 +1,7 @@
 extends CSGCylinder
 
+#onready var body_mesh = get_node("MeshInstance")
+
 var time = 0.0
 var time_scale = 1.0
 var max_height = 3

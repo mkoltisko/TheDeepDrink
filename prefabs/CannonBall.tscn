@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.5
@@ -6,6 +6,9 @@ radius = 0.5
 [sub_resource type="SphereMesh" id=2]
 radius = 0.5
 height = 1.0
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.266667, 0.223529, 0.223529, 1 )
 
 [node name="cannonBall" type="RigidBody"]
 collision_layer = 0
@@ -16,4 +19,4 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 3 )

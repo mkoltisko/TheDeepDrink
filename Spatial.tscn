@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://prefabs/Ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=2]
 [ext_resource path="res://textures/water.png" type="Texture" id=3]
 [ext_resource path="res://scripts/CoinSpawner.gd" type="Script" id=10]
 
@@ -21,10 +21,10 @@ script = ExtResource( 2 )
 
 [node name="Sea" type="StaticBody" parent="."]
 transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0 )
-visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Sea"]
 shape = SubResource( 1 )
+disabled = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Sea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192509, 0, 0 )
@@ -32,7 +32,7 @@ mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.179712, 0.983719, 0, -0.983719, -0.179712, 0, 41.3615, 0 )
+transform = Transform( 0.899519, 0.0580127, 0.433013, -0.433013, 0.25, 0.866025, -0.0580127, -0.966506, 0.25, 0, 0, 0 )
 shadow_enabled = true
 
 [node name="Node" type="Node" parent="."]

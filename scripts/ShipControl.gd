@@ -22,5 +22,8 @@ func _physics_process(delta):
 	angle = Body.rotation.y
 	motion = Vector3(sin(angle + PI/2), 0, cos(angle + PI/2))
 	move_and_slide(motion * forward_speed)
+	var collided = get_slide_count()
+	if collided != 0:
+		get_slide_collision(collided-1).get_collider().queue_free()
 
 

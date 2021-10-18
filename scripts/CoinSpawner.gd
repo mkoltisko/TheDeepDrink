@@ -2,7 +2,7 @@ extends Node
 
 var maxCoinNo = 5
 var coinNo = 0
-var coinHeight = 5
+var coinHeight = 7
 
 var rng = RandomNumberGenerator.new()
 var unit = preload("res://prefabs/Coin.tscn")
